@@ -10,6 +10,12 @@ jobs:
   env_vars_2:
     runs-on: ubuntu-latest
     steps:
+    - name: Write new environment variable
+      shell: pwsh
+      run: |
+        "DATABASE_NAME=$((New-Guid).Guid)" >> $env:GITHUB_ENV
+        "FIRST_NAME=Simona" >> $env:GITHUB_ENV
+        "LAST_NAME=Millham" >> $env:GITHUB_ENV
     - name: First Name, no local step variables
       shell: pwsh
       run: |
@@ -18,6 +24,10 @@ jobs:
       shell: pwsh
       run: |
         Write-Host -Object "The name of the LAST_NAME variable is: $env:LAST_NAME"
+    - name: Database name
+      shell: pwsh
+      run: |
+        Write-Host -Object "The name of my database is: $env:DATABASE_NAME"
 
   env_vars:
     env:
