@@ -10,15 +10,18 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-    - shell: pwsh
+    - name: Local Environment Variables
+      shell: pwsh
       env:
         FIRST_NAME: Billy
         LAST_NAME: Jones
       run: |
         Write-Host -Object "The name of the FIRST_NAME variable is: $env:FIRST_NAME"
-    - shell: pwsh
+    - name: First Name, no local step variables
+      shell: pwsh
       run: |
         Write-Host -Object "The name of the FIRST_NAME variable is: $env:FIRST_NAME"
-    - shell: pwsh
+    - name: Last name, no local step variables
+      shell: pwsh
       run: |
         Write-Host -Object "The name of the LAST_NAME variable is: $env:LAST_NAME"
