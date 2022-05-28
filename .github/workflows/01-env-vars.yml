@@ -7,6 +7,18 @@ env:
   LAST_NAME: McGovern
 
 jobs:
+  env_vars_2:
+    runs-on: ubuntu-latest
+    steps:
+    - name: First Name, no local step variables
+      shell: pwsh
+      run: |
+        Write-Host -Object "The name of the FIRST_NAME variable is: $env:FIRST_NAME"
+    - name: Last name, no local step variables
+      shell: pwsh
+      run: |
+        Write-Host -Object "The name of the LAST_NAME variable is: $env:LAST_NAME"
+
   env_vars:
     env:
       FIRST_NAME: Billy
