@@ -7,6 +7,17 @@ env:
   LAST_NAME: McGovern
 
 jobs:
+  contexts_exploration:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Who is the actor?
+      shell: pwsh
+      run: |
+        Write-Host -Object "The individual who triggered this workflow is: ${{ github.actor }}"
+    - name: Which event triggered this workflow?
+      shell: pwsh
+      run: |
+        Write-Host -Object "The event type that triggered this workflow execution is: ${{ github.event_name }}"
   env_vars_2:
     runs-on: ubuntu-latest
     steps:
