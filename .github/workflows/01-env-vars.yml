@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - shell: pwsh
+      env:
+        FIRST_NAME: Billy
+        LAST_NAME: Jones
+      run: |
+        Write-Host -Object "The name of the FIRST_NAME variable is: $env:FIRST_NAME"
+    - shell: pwsh
       run: |
         Write-Host -Object "The name of the FIRST_NAME variable is: $env:FIRST_NAME"
     - shell: pwsh
